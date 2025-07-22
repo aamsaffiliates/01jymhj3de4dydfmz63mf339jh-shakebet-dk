@@ -1,0 +1,428 @@
+/* Custom CSS for Shakebet Casino - Sidebar Layout */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(254, 41, 27, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(254, 41, 27, 0.6);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+/* Floating image animation */
+.floating-image {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Bonus card animations */
+.bonus-card {
+  animation: pulse-glow 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.bonus-card:hover {
+  transform: scale(1.02);
+}
+
+/* CTA button animation */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+/* Slot card animations */
+.slot-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.slot-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.slot-card:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.slot-card:hover::before {
+  left: 100%;
+}
+
+/* Sidebar specific styles */
+.sidebar-nav a {
+  transition: all 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+  transform: translateX(5px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1024px) {
+  .ml-64 {
+    margin-left: 0;
+  }
+
+  .fixed.left-0 {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .fixed.left-0.open {
+    transform: translateX(0);
+  }
+
+  .fixed.left-72 {
+    left: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-image {
+    animation: none;
+  }
+
+  .slot-card:hover {
+    transform: scale(1.02);
+  }
+
+  .grid.lg\\:grid-cols-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Cookie banner responsive */
+  #cookie-banner {
+    padding: 1rem;
+  }
+
+  #cookie-banner .container {
+    max-width: none;
+  }
+
+  #cookie-modal .max-w-2xl {
+    margin: 1rem;
+    max-width: calc(100% - 2rem);
+  }
+}
+
+/* Loading animation for images */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img:not([src]) {
+  opacity: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fffdf0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fe291b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e6241a;
+}
+
+/* Intersection Observer animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button hover effects */
+button,
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Payment method cards */
+.payment-card {
+  transition: all 0.3s ease;
+}
+
+.payment-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid #fff103;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-cream {
+    background-color: #ffffff;
+  }
+  .text-dark {
+    color: #000000;
+  }
+  .bg-dark {
+    background-color: #000000;
+  }
+  .text-cream {
+    color: #ffffff;
+  }
+
+  /* High contrast mode for cookie banner */
+  #cookie-banner {
+    background-color: #000000;
+    border-top: 2px solid #ffffff;
+  }
+
+  #cookie-modal {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* Sidebar gradient enhancement */
+.sidebar-gradient {
+  background-color: #fe291b;
+}
+
+/* Header backdrop blur enhancement */
+.header-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Review article toggle animation */
+#review-content {
+  transition: all 0.3s ease;
+}
+
+#review-arrow {
+  transition: transform 0.3s ease;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Enhanced color consistency */
+.bg-cream {
+  background-color: #fffdf0 !important;
+}
+
+.text-dark {
+  color: #0a0a0a !important;
+}
+
+.bg-dark {
+  background-color: #0a0a0a !important;
+}
+
+.text-red {
+  color: #fe291b !important;
+}
+
+.bg-red {
+  background-color: #fe291b !important;
+}
+
+.text-yellow {
+  color: #fff103 !important;
+}
+
+.bg-yellow {
+  background-color: #fff103 !important;
+}
+
+.text-cream {
+  color: #fffdf0 !important;
+}
+
+.bg-cream {
+  background-color: #fffdf0 !important;
+}
+
+/* Border colors */
+.border-dark\/10 {
+  border-color: rgba(10, 10, 10, 0.1);
+}
+
+.border-red\/20 {
+  border-color: rgba(254, 41, 27, 0.2);
+}
+
+.border-yellow\/30 {
+  border-color: rgba(255, 241, 3, 0.3);
+}
+
+/* Background opacity colors */
+.bg-dark\/5 {
+  background-color: rgba(10, 10, 10, 0.05);
+}
+
+.bg-red\/10 {
+  background-color: rgba(254, 41, 27, 0.1);
+}
+
+.bg-yellow\/20 {
+  background-color: rgba(255, 241, 3, 0.2);
+}
+
+/* Cookie Banner Styles */
+#cookie-banner {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#cookie-modal {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Custom toggle switches */
+.peer:checked ~ div {
+  background-color: var(--toggle-color, #3b82f6);
+}
+
+/* Cookie modal animations */
+#cookie-modal > div > div {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* GDPR compliance indicators */
+.gdpr-required {
+  position: relative;
+}
+
+.gdpr-required::after {
+  content: "*";
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+/* Cookie category icons */
+.cookie-category-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Accessibility improvements for toggles */
+input[type="checkbox"]:focus + div {
+  box-shadow: 0 0 0 2px #fff103;
+}
