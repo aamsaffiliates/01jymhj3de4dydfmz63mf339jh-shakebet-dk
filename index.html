@@ -199,8 +199,20 @@
             </div>
         </div>
     </div>
+    <!-- Mobile Sidebar Toggle Button -->
+    <button id="mobile-sidebar-toggle" class="fixed top-4 left-4 z-50 bg-yellow text-dark rounded-full p-3 shadow-lg lg:hidden" onclick="openSidebar()">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+    <!-- Mobile Sidebar Backdrop -->
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden" onclick="closeSidebar()"></div>
     <!-- Left Sidebar -->
-    <div class="fixed left-0 top-0 h-full w-64 bg-dark text-white z-40 shadow-2xl">
+    <div id="sidebar" class="fixed left-0 top-0 h-full w-72 max-w-xs bg-dark text-white z-50 shadow-2xl transition-transform duration-300 -translate-x-full lg:w-64 lg:translate-x-0 lg:block">
+        <!-- Mobile Close Button -->
+        <div class="flex justify-end p-4 lg:hidden">
+            <button onclick="closeSidebar()" class="bg-yellow text-dark rounded-full p-2 shadow">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+        </div>
         <!-- Logo -->
         <div class="p-6 border-b border-white/20">
             <div class="flex items-center justify-center">
@@ -209,7 +221,6 @@
                 </a>
             </div>
         </div>
-        
         <!-- Navigation Menu -->
         <nav class="p-4 space-y-2">
             <a href="#casino" onclick="redirectToCasino()" class="flex items-center space-x-3 p-3 rounded-xl bg-white/10 hover:bg-white/20 transition-all group">
@@ -267,20 +278,19 @@
     </div>
 
     <!-- Main Content Area -->
-    <div class="ml-64">
+    <div class="lg:ml-64">
         <!-- Floating Header -->
-        <header class="fixed top-4 left-72 right-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg z-30 border border-white/20">
-            <div class="px-6 py-4 flex justify-between items-center">
+        <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md rounded-b-2xl shadow-lg z-30 border border-white/20 mx-0 lg:top-4 lg:left-72 lg:right-4 lg:rounded-2xl lg:mx-0">
+            <div class="px-4 py-3 lg:px-6 lg:py-4 flex flex-col lg:flex-row justify-between items-center gap-2 lg:gap-0">
                 <div class="flex items-center space-x-2">
                     <i class="fas fa-star text-yellow"></i>
-                    <span class="font-semibold text-dark">Velkommen til Shakebet Casino!</span>
+                    <h1 class="font-semibold text-dark text-lg lg:text-xl">Velkommen til Shakebet Casino!</h1>
                 </div>
-                
-                <div class="flex space-x-3">
-                    <button onclick="redirectToCasino()" class="px-4 py-2 text-dark hover:text-red transition-colors font-medium">
+                <div class="flex space-x-2 lg:space-x-3 mt-2 lg:mt-0">
+                    <button onclick="redirectToCasino()" class="px-4 py-2 text-dark hover:text-red transition-colors font-medium text-sm lg:text-base">
                         Log ind
                     </button>
-                    <button onclick="redirectToCasino()" class="px-6 py-2 bg-yellow text-dark rounded-xl hover:bg-yellow/90 transition-all font-semibold">
+                    <button onclick="redirectToCasino()" class="px-6 py-2 bg-yellow text-dark rounded-xl hover:bg-yellow/90 transition-all font-semibold text-sm lg:text-base">
                         Tilmeld dig
                     </button>
                 </div>
@@ -289,46 +299,45 @@
 
         <!-- Hero Section -->
         <section class="mt-8 pt-24 pb-8 bg-gradient-to-br from-cream via-yellow/10 to-red/5 min-h-screen">
-            <div class="container mx-auto px-6">
-                <div class="grid lg:grid-cols-3 gap-8 items-start">
+            <div class="container mx-auto px-2 lg:px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                     <!-- Main Hero Content -->
                     <div class="lg:col-span-2 space-y-8">
                         <!-- Welcome Bonus -->
-                        <div class="bg-dark text-cream p-8 rounded-2xl shadow-2xl bonus-card">
+                        <div class="bg-dark text-cream p-4 lg:p-8 rounded-2xl shadow-2xl bonus-card">
                             <div class="space-y-4">
-                                <div class="text-yellow text-sm font-semibold uppercase tracking-wide text-center">
+                                <div class="text-yellow text-xs lg:text-sm font-semibold uppercase tracking-wide text-center">
                                     Casino Velkomstbonus
                                 </div>
-                                <div class="text-4xl font-bold text-center">
+                                <div class="text-2xl lg:text-4xl font-bold text-center">
                                     200% op til <span class="text-yellow">kr10,000</span> + 200 FS + 1 Crab
                                 </div>
                                 <div class="text-center space-y-2">
-                                    <div class="text-sm text-cream/80">Lav dit første indskud på kr20 eller mere</div>
-                                    <div class="text-sm text-cream/80">Aktiver din bonus</div>
-                                    <div class="text-sm text-cream/80">Omsætningskrav 35x (40x for gratis spins)</div>
+                                    <div class="text-xs lg:text-sm text-cream/80">Lav dit første indskud på kr20 eller mere</div>
+                                    <div class="text-xs lg:text-sm text-cream/80">Aktiver din bonus</div>
+                                    <div class="text-xs lg:text-sm text-cream/80">Omsætningskrav 35x (40x for gratis spins)</div>
                                 </div>
-                                <button onclick="redirectToCasino()" class="w-full bg-yellow text-dark py-4 rounded-xl font-bold text-lg hover:bg-yellow/90 transition-all transform hover:scale-105 cta-button">
+                                <button onclick="redirectToCasino()" class="w-full bg-yellow text-dark py-3 lg:py-4 rounded-xl font-bold text-base lg:text-lg hover:bg-yellow/90 transition-all transform hover:scale-105 cta-button">
                                     Hent nu
                                 </button>
                             </div>
                         </div>
                         <!-- Hero Image -->
                         <div class="relative">
-                            <img src="src/shakebet.png" alt="Casino spil" class="w-full h-96 object-cover rounded-2xl shadow-2xl floating-image">
+                            <img src="src/shakebet.png" alt="Casino spil" class="w-full h-56 lg:h-96 object-cover rounded-2xl shadow-2xl floating-image">
                             <div class="absolute -top-4 -right-4 bg-red text-cream p-4 rounded-full animate-bounce">
                                 <i class="fas fa-coins text-2xl"></i>
                             </div>
                         </div>
                     </div>
-                    
                     <!-- Payment Methods Sidebar -->
                     <div class="space-y-6">
                         <div>
-                        <img src="src/featured-slot-2.png" alt="Gates Of Olympus" class="w-full h-96 object-cover rounded-2xl shadow-2xl floating-image">
-                    </div>
-                        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-                            <h3 class="text-lg font-bold mb-4 text-center">Shakebet indskudsmetoder</h3>
-                            <div class="grid grid-cols-2 gap-3">
+                            <img src="src/featured-slot-2.png" alt="Gates Of Olympus" class="w-full h-56 lg:h-96 object-cover rounded-2xl shadow-2xl floating-image">
+                        </div>
+                        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-4 lg:p-6 shadow-lg">
+                            <h3 class="text-base lg:text-lg font-bold mb-4 text-center">Shakebet indskudsmetoder</h3>
+                            <div class="grid grid-cols-2 gap-2 lg:gap-3">
                                 <!-- Mastercard -->
                                 <div class="bg-gradient-to-r from-red-600 to-orange-500 p-3 rounded-lg flex items-center justify-center">
                                     <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
@@ -404,14 +413,13 @@
         </section>
 
         <!-- Slots Section -->
-        <section id="slots" class="py-16 bg-cream">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Shakebets Valg</h2>
-                    <p class="text-dark/70 text-lg">De mest populære slot spil</p>
+        <section id="slots" class="py-8 lg:py-16 bg-cream">
+            <div class="container mx-auto px-2 lg:px-6">
+                <div class="text-center mb-8 lg:mb-12">
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 lg:mb-4">Shakebets Valg</h2>
+                    <p class="text-dark/70 text-base lg:text-lg">De mest populære slot spil</p>
                 </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-4 mb-4 lg:mb-8">
                     <!-- Row 1 -->
                     <div class="slot-card bg-dark rounded-xl overflow-hidden cursor-pointer" onclick="redirectToCasino()">
                         <img src="src/le-bandit.jpg" alt="Le Bandit" class="w-full object-cover">
@@ -514,15 +522,15 @@
         </section>
 
         <!-- Promotions Section -->
-        <section class="py-16 bg-dark text-cream">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
+        <section class="py-8 lg:py-16 bg-dark text-cream">
+            <div class="container mx-auto px-2 lg:px-6">
+                <div class="text-center mb-8 lg:mb-12">
                     <h2 class="text-3xl font-bold mb-4">Shakebet Kampagner</h2>
                     <p class="text-cream/80">Bonus Mayhem Awaits!</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="bg-yellow p-8 rounded-2xl text-dark">
+                <div class="grid md:grid-cols-2 gap-4 lg:gap-8 max-w-4xl mx-auto">
+                    <div class="bg-yellow p-4 lg:p-8 rounded-2xl text-dark">
                         <h3 class="text-2xl font-bold mb-4">Velkomstbonus på Shakebet</h3>
                         <div class="text-4xl font-bold mb-4">200% op til kr10,000 + 1 Bonus Crab</div>
                         <button onclick="redirectToCasino()" class="bg-dark text-cream px-6 py-3 rounded-xl font-semibold hover:bg-dark/90 transition-all">
@@ -530,7 +538,7 @@
                         </button>
                     </div>
                     
-                    <div class="bg-red p-8 rounded-2xl text-cream">
+                    <div class="bg-red p-4 lg:p-8 rounded-2xl text-cream">
                         <h3 class="text-2xl font-bold mb-4">Ugentlig Reload</h3>
                         <div class="text-4xl font-bold mb-4">10% Cashback</div>
                         <div class="text-lg mb-4">50 Gratis Spins</div>
@@ -543,9 +551,9 @@
         </section>
 
         <!-- About Shakebet Casino Review Article -->
-        <section class="py-16 bg-white border-t border-dark/10">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <div class="bg-cream rounded-2xl p-8 shadow-lg">
+        <section class="py-8 lg:py-16 bg-white border-t border-dark/10">
+            <div class="container mx-auto px-2 lg:px-6 max-w-4xl">
+                <div class="bg-cream rounded-2xl p-4 lg:p-8 shadow-lg">
                     <div class="flex justify-between items-center cursor-pointer" onclick="toggleReviewArticle()">
                         <h2 class="text-2xl font-bold text-dark">Om Shakebet Casino - Ekspert Anmeldelse</h2>
                         <div class="flex items-center space-x-2">
@@ -850,6 +858,55 @@
                 }
             });
         });
+
+        // Sidebar open/close for mobile
+        function openSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.remove('-translate-x-full');
+    sidebar.classList.remove('left-0');
+    sidebar.classList.add('translate-x-0');
+    // Remove any translate-x-100 or similar classes
+    sidebar.classList.remove('translate-x-100');
+    document.getElementById('sidebar-backdrop').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.add('-translate-x-full');
+    sidebar.classList.remove('translate-x-0');
+    // Remove any translate-x-100 or similar classes
+    sidebar.classList.remove('translate-x-100');
+    document.getElementById('sidebar-backdrop').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+// Hide sidebar on mobile by default
+window.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('sidebar');
+    if (window.innerWidth < 1024) {
+        sidebar.classList.add('-translate-x-full');
+        sidebar.classList.remove('translate-x-0');
+        sidebar.classList.remove('translate-x-100');
+        document.getElementById('sidebar-backdrop').classList.add('hidden');
+    }
+});
+
+// Hide sidebar when resizing to mobile
+window.addEventListener('resize', function() {
+    const sidebar = document.getElementById('sidebar');
+    if (window.innerWidth < 1024) {
+        sidebar.classList.add('-translate-x-full');
+        sidebar.classList.remove('translate-x-0');
+        sidebar.classList.remove('translate-x-100');
+        document.getElementById('sidebar-backdrop').classList.add('hidden');
+    } else {
+        sidebar.classList.remove('-translate-x-full');
+        sidebar.classList.add('translate-x-0');
+        sidebar.classList.remove('translate-x-100');
+        document.getElementById('sidebar-backdrop').classList.add('hidden');
+    }
+});
     </script>
 </body>
 </html>
